@@ -85,5 +85,4 @@ simulation by clicking on the play button before proceed.
 The quadrotor must be controlled smoothly (no overshoot or oscillations) to track the trajectories
 generated in Part 1 and reach the five desired waypoints.
 - After the simulation is over, run the visualization script to plot the actual trajectories on top
-of the reference trajectories in 3D to ensure a satisfactory control performance. Remember to save
-the resulting plot as a figure to be included in your report.
+of the reference trajectories in 3D to ensure a satisfactory control performance.
