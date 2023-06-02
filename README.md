@@ -1,4 +1,4 @@
-'''
+'''bash
 sudo apt update
 sudo apt install ros-noetic-joy ros-noetic-octomap-ros ros-noetic-mavlink
 sudo apt install ros-noetic-octomap-mapping ros-noetic-control-toolbox
