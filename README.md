@@ -59,15 +59,14 @@ trajectories and visit a set of desired waypoints. The main components of the pr
 
 The sequence of visiting the waypoints does matter. The velocity and acceleration at each waypoint must be equal to zero.
 
-**Part 2.** : Design boundary layer-based sliding mode control laws for the z, ϕ, θ, ψ coordinates of the quadrotor to track desired trajectories
+**Part 2.** : A boundary layer-based sliding mode control laws is designed for the z, ϕ, θ, ψ coordinates of the quadrotor to track desired trajectories
 zd, ϕd, θd, and ψd.
 
 For this project, the desired yaw angle ψ, and also the desired angular velocities ˙ϕ, ˙ θ, ˙ψ and the desired angular accelerations ¨ϕ, ¨θ, ¨ ψ can be considered zero during the motion, i.e: ψd = 0 and ˙ϕd = ˙ θd = ˙ψd = 0 and ¨ϕd = ¨θd = ¨ ψd = 0
 The resulting discrepancy can be considered as an external disturbance that is handled through the robust control design in this project.
 
-**Part 3.** : Implement a ROS node in Python or MATLAB to evaluate the performance of the
-control design on the Crazyflie 2.0 quadrotor in Gazebo. You can create a new ROS package
-named project under the project workspace for this purpose. The script must implement the
+**Part 3.** : A ROS node is implemented in Python to evaluate the performance of the
+control design on the Crazyflie 2.0 quadrotor in Gazebo. The script must implement the
 trajectories generated in Part 1 and the sliding mode control laws formulated in Part 2.
 
 **Part 4.** Once the program is shut down, the actual trajectory is saved into a log.pkl file under
