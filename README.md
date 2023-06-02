@@ -45,3 +45,53 @@ To spawn the quadrotor in Gazebo, we can run the following launch file:
 ```bash 
 $ roslaunch rotors_gazebo crazyflie2_without_controller.launch
 ```
+
+## Problem Statement
+Design a sliding mode controller for altitude and attitude control of the Crazyflie 2.0 to enable the
+quadrotor to track desired trajectories and visit a set of desired waypoints.
+The main components of the project are described below.
+
+**Part 1.** : The quadrotor is supposed to visit the following points one by one   
+• p0 = (0, 0, 0) to p1 = (0, 0, 1) in 5 seconds
+• p1 = (0, 0, 1) to p2 = (1, 0, 1) in 15 seconds
+• p2 = (1, 0, 1) to p3 = (1, 1, 1) in 15 seconds
+• p3 = (1, 1, 1) to p4 = (0, 1, 1) in 15 seconds
+• p4 = (0, 1, 1) to p5 = (0, 0, 1) in 15 seconds
+The sequence of visiting the waypoints does matter. The velocity and acceleration at each waypoint
+must be equal to zero.
+
+**Part 2.** : Design boundary layer-based sliding mode control laws for the z, ϕ, θ, ψ coordinates of the quadrotor to track desired trajectories
+zd, ϕd, θd, and ψd. Include the control formulations (as symbolic expressions) in your final report.
+Remark 2: To convert the desired position trajectories (xd, yd, zd) to desired roll and pitch angles
+(ϕd, θd), the desired forces in x and y direction can be calculated using PD control (according to Eq.
+(1) and (2)), and the resulting desired forces can be then converted to desired ϕ and θ according
+to Eq. (3) and Eq. (4):
+Fx = m
+􀀀
+− kp (x − xd) − kd (x˙ − x˙ d) + x¨d
+
+, (1)
+Fy = m
+􀀀
+− kp (y − yd) − kd (y˙ − y˙d) + y¨d
+
+, (2)
+θd = sin−1
+Fx
+u1
+
+(3)
+ϕd = sin−1
+−Fy
+u1
+
+(4)
+Remark 3: For the purpose of this assignment, the desired yaw angle ψ, and also the desired angular
+velocities ˙ϕ, ˙ θ, ˙ψ and the desired angular accelerations ¨ϕ, ¨θ, ¨ ψ can be considered zero during the
+motion, i.e:
+ψd = 0 and ˙ϕd = ˙ θd = ˙ψd = 0 and ¨ϕd = ¨θd = ¨ ψd = 0
+The resulting discrepancy can be considered as an external disturbance that is handled through the
+robust control design in this assignment.
+Remark 4: When designing the sliding mode control laws, assume that all the model parameters
+are known. In fact, the objective of this assignment is to design a sliding mode controller to be
+robust under reasonable external disturbances, as discussed in class.
