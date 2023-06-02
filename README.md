@@ -47,7 +47,8 @@ $ roslaunch rotors_gazebo crazyflie2_without_controller.launch
 ```
 
 ## Problem Statement
-Design a sliding mode controller for altitude and attitude control of the Crazyflie 2.0 to enable the quadrotor to track desired trajectories and visit a set of desired waypoints. The main components of the project are described below.
+Design a sliding mode controller for altitude and attitude control of the Crazyflie 2.0 to enable the quadrotor to track desired 
+trajectories and visit a set of desired waypoints. The main components of the project are described below.
 
 **Part 1.** : The quadrotor is supposed to visit the following points one by one   
 - p0 = (0, 0, 0) to p1 = (0, 0, 1) in 5 seconds
@@ -61,36 +62,28 @@ The sequence of visiting the waypoints does matter. The velocity and acceleratio
 **Part 2.** : Design boundary layer-based sliding mode control laws for the z, ϕ, θ, ψ coordinates of the quadrotor to track desired trajectories
 zd, ϕd, θd, and ψd.
 
-Remark 2: To convert the desired position trajectories (xd, yd, zd) to desired roll and pitch angles
-(ϕd, θd), the desired forces in x and y direction can be calculated using PD control (according to Eq.
-(1) and (2)), and the resulting desired forces can be then converted to desired ϕ and θ according
-to Eq. (3) and Eq. (4):
-Fx = m
-􀀀
-− kp (x − xd) − kd (x˙ − x˙ d) + x¨d
-
-, (1)
-Fy = m
-􀀀
-− kp (y − yd) − kd (y˙ − y˙d) + y¨d
-
-, (2)
-θd = sin−1
-Fx
-u1
-
-(3)
-ϕd = sin−1
-−Fy
-u1
-
-(4)
-Remark 3: For the purpose of this assignment, the desired yaw angle ψ, and also the desired angular
-velocities ˙ϕ, ˙ θ, ˙ψ and the desired angular accelerations ¨ϕ, ¨θ, ¨ ψ can be considered zero during the
-motion, i.e:
-ψd = 0 and ˙ϕd = ˙ θd = ˙ψd = 0 and ¨ϕd = ¨θd = ¨ ψd = 0
-The resulting discrepancy can be considered as an external disturbance that is handled through the
-robust control design in this assignment.
-Remark 4: When designing the sliding mode control laws, assume that all the model parameters
-are known. In fact, the objective of this assignment is to design a sliding mode controller to be
-robust under reasonable external disturbances, as discussed in class.
+For this project, the desired yaw angle ψ, and also the desired angular velocities ˙ϕ, ˙ θ, ˙ψ and the desired angular accelerations ¨ϕ, ¨θ, ¨ ψ can be considered zero during the motion, i.e: ψd = 0 and ˙ϕd = ˙ θd = ˙ψd = 0 and ¨ϕd = ¨θd = ¨ ψd = 0
+The resulting discrepancy can be considered as an external disturbance that is handled through the robust control design in this project.
+
+**Part 3.** : Implement a ROS node in Python or MATLAB to evaluate the performance of the
+control design on the Crazyflie 2.0 quadrotor in Gazebo. You can create a new ROS package
+named project under the project workspace for this purpose. The script must implement the
+trajectories generated in Part 1 and the sliding mode control laws formulated in Part 2.
+
+**Part 4.** Once the program is shut down, the actual trajectory is saved into a log.pkl file under
+the scripts directory. Run the visualize.py script above to help visualize the trajectory from
+the saved log.pkl file.
+
+## Performance Testing in Gazebo
+- Open a terminal in Ubuntu, and spawn the Crazyflie 2.0 quadrotor on the Gazebo simulator :
+```bash
+$ roslaunch rotors_gazebo crazyflie2_without_controller.launch
+``` 
+Note that the Gazebo environment starts in the paused mode, so make sure that you start the
+simulation by clicking on the play button before proceed.
+- We can now test the control script developed in Part 3 by running the script in a new terminal.
+The quadrotor must be controlled smoothly (no overshoot or oscillations) to track the trajectories
+generated in Part 1 and reach the five desired waypoints.
+- After the simulation is over, run the visualization script to plot the actual trajectories on top
+of the reference trajectories in 3D to ensure a satisfactory control performance. Remember to save
+the resulting plot as a figure to be included in your report.
