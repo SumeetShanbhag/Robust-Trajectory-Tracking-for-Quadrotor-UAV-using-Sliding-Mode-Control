@@ -91,4 +91,5 @@ generated in Part 1 and reach the five desired waypoints.
 of the reference trajectories in 3D to ensure a satisfactory control performance.
 
 ## Trajectory Image
+![Trajectory image](https://github.com/SumeetShanbhag/Robot-Control/blob/master/rbe502_project/src/Trajectory.png)
 
