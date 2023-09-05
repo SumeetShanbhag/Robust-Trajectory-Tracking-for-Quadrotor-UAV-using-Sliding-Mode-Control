@@ -1,4 +1,6 @@
 The project was built on Ubuntu 20.04 and ROS Noetic. The first part comprises of installing all the required dependencies as shown below. 
+
+# Instructions to install dependencies
 ```bash
 $ sudo apt update
 $ sudo apt install ros-noetic-joy ros-noetic-octomap-ros ros-noetic-mavlink
@@ -9,6 +11,8 @@ $ sudo apt-get install ros-noetic-ros libgoogle-glog-dev
 ```
 
 A new workspace is created and all the required ROS packages are downloaded.
+
+# Setup Workspace
 ```bash 
 $ mkdir -p ~/rbe502_project/src
 $ cd ~/rbe502_project/src
