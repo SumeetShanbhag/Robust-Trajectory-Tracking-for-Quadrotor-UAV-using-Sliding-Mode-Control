@@ -1,6 +1,6 @@
 The project was built on Ubuntu 20.04 and ROS Noetic. The first part comprises of installing all the required dependencies as shown below. 
 
-# Instructions to install dependencies
+## Instructions to install dependencies
 ```bash
 $ sudo apt update
 $ sudo apt install ros-noetic-joy ros-noetic-octomap-ros ros-noetic-mavlink
@@ -12,7 +12,7 @@ $ sudo apt-get install ros-noetic-ros libgoogle-glog-dev
 
 A new workspace is created and all the required ROS packages are downloaded.
 
-# Setup Workspace
+## Setup Workspace
 ```bash 
 $ mkdir -p ~/rbe502_project/src
 $ cd ~/rbe502_project/src
@@ -89,3 +89,6 @@ The quadrotor must be controlled smoothly (no overshoot or oscillations) to trac
 generated in Part 1 and reach the five desired waypoints.
 - After the simulation is over, run the visualization script to plot the actual trajectories on top
 of the reference trajectories in 3D to ensure a satisfactory control performance.
+
+## Trajectory Image
+
